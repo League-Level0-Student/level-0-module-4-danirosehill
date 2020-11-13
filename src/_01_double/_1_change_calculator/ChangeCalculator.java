@@ -10,6 +10,22 @@ import javax.swing.JOptionPane;
 public class ChangeCalculator {
 
 	public static void main(String[] args) {
+	
+	String nick = JOptionPane.showInputDialog("How many nickels do you have?");
+	int nickels = Integer.parseInt(nick);
+	String di = JOptionPane.showInputDialog("How many dimes do you have?");
+	int dimes = Integer.parseInt(di);
+	String qua = JOptionPane.showInputDialog("How many quarters do you have?");
+	int quarters= Integer.parseInt(qua);
+	
+	int total;
+	total = (5 * nickels) + (10 * dimes) + (25 * quarters);
+	int answer;
+	answer = total/100;
+	JOptionPane.showMessageDialog(null, "You have $" + answer);
+	
+
+	
 
 		// Ask the user how many nickels they have
 
