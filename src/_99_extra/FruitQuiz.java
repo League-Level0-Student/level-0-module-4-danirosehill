@@ -7,18 +7,27 @@ import java.awt.event.KeyEvent;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class FruitQuiz extends KeyAdapter {
 
 	void makeQuestions() {
 		question1 = new JLabel("<html>Which is not a real fruit? <br> A: Dragon Fruit <br> B: Durian <br> C: Crazyberry</html>");
 		// 11. Make another question called "question2".  Use question1 above as a guide.
+		
+		question2 = new JLabel("<html>Which is not a real animal? <br> A: quokka <br> B. lazy bear <br> C. goose </html>");
 	}
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		int keyCode = arg0.getKeyCode();
 		// 1. Print out the key code variable
+		
+		System.out.println(keyCode);
+		
+		int a = 65;
+		int b = 66;
+		int c = 67;
 
 		// 2. Make 3 int variables that hold the key codes for A, b, and C
 		
@@ -30,6 +39,25 @@ public class FruitQuiz extends KeyAdapter {
 		
 			
 		if (question1.isShowing()) {
+			
+		if (keyCode == 67){
+		correct();
+		nextQuestion(question2);
+		} else {
+		incorrect();
+		}
+		}
+		
+		if (question2.isShowing()) {
+			
+			if (keyCode == 66){
+			correct();
+			JOptionPane.showMessageDialog(null, "You got 100%!");
+			} else {
+			incorrect();
+			}
+			}
+		
 			// 3. If they selected the right fruit, do steps 4 and 7
 			
 				// 4. Call the correct() method
@@ -43,19 +71,16 @@ public class FruitQuiz extends KeyAdapter {
 		
 		}
 
-	}
+	
 
 	private void correct() {
-		// 5. Find a sound for when they get a question right, and drag it into
-		// the 'extra' package. It must be a .wav file. 
-		// There are lots on freesound.org
-		// 6. Use the playSound method to play your sound
+		playSound("correct.wav");
 
 
 	}
 
 	private void incorrect() {
-		// 10. Find a sound for wrong answers and put it in the default package. Use the playSound method to play it.
+		playSound("wrong.wav");
 
 	}
 
